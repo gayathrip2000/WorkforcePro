@@ -4,9 +4,12 @@ package com.backend.BackEnd.controller;
 import com.backend.BackEnd.dto.EmployeeDto;
 import com.backend.BackEnd.service.EmployeeService;
 import lombok.AllArgsConstructor;
+import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+
 
 @AllArgsConstructor
 @RestController
@@ -30,4 +33,10 @@ public class EmployeeController {
         return ResponseEntity.ok(employeeDto);
     }
 
+    //Build get all rest api
+    @GetMapping
+    public ResponseEntity <List<EmployeeDto>>  getAllEmployees() {
+            List<EmployeeDto> employees = employeeService.getAllEmployees();
+        return ResponseEntity.ok(employees);
+    }
 }
