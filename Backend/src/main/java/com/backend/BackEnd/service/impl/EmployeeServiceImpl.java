@@ -2,6 +2,7 @@ package com.backend.BackEnd.service.impl;
 
 import com.backend.BackEnd.dto.EmployeeDto;
 import com.backend.BackEnd.entity.Employee;
+import com.backend.BackEnd.exception.ResourceNotFoundException;
 import com.backend.BackEnd.mapper.EmployeeMapper;
 import com.backend.BackEnd.repository.EmployeeRepository;
 import com.backend.BackEnd.service.EmployeeService;
@@ -20,5 +21,13 @@ public class EmployeeServiceImpl implements EmployeeService {
         Employee employee = EmployeeMapper.mapToEmployDto(employeeDto);
         Employee saveEmployee =employeeRepository.save(employee);
         return EmployeeMapper.mapToEmployDto(saveEmployee);
+    }
+
+    @Override
+    public EmployeeDto getEmployeeById(Long employeeId) {
+      Employee employee =  employeeRepository.findById(employeeId)
+        .orElseThrow(() ->
+                new ResourceNotFoundException("Employee is not exist given id: " + employeeId));
+        return EmployeeMapper.mapToEmployDto(employee);
     }
 }
