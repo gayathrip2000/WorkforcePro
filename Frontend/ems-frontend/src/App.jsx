@@ -1,4 +1,5 @@
 import './App.css'
+import EmployeeComponent from './components/EmployeeComponent'
 import FotterComponent from './components/FotterComponent'
 import HeaderComponent from './components/HeaderComponent'
 import ListEmployeeCompnent from './components/ListEmployeeCompnent'
@@ -14,6 +15,7 @@ function App() {
     <Routes>
     <Route path="/" element={<ListEmployeeCompnent />} exact />
     <Route path="/employees" element={<ListEmployeeCompnent />} exact />
+    <Route path="/add-employee" element={<EmployeeComponent />} exact />
      </Routes>
      <FotterComponent/>
      </BrowserRouter>
