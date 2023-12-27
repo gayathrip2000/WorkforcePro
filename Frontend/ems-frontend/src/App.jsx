@@ -16,6 +16,7 @@ function App() {
     <Route path="/" element={<ListEmployeeCompnent />} exact />
     <Route path="/employees" element={<ListEmployeeCompnent />} exact />
     <Route path="/add-employee" element={<EmployeeComponent />} exact />
+    <Route path="/edit-employee/:id" element={<EmployeeComponent />} exact />
      </Routes>
      <FotterComponent/>
      </BrowserRouter>
